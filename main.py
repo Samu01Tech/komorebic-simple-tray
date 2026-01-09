@@ -71,7 +71,7 @@ class KomorebiTray:
         """Function to start Komorebi"""
         try:
             command = ["komorebic.exe", "start", "--whkd"]
-            result = subprocess.run(command, check=True, capture_output=True, text=True)
+            result = subprocess.run(command, check=True, capture_output=True, text=True, creationflags=subprocess.CREATE_NO_WINDOW)
             self.is_running = True
             self.update_icon()
             print("Komorebi started successfully")
@@ -84,7 +84,7 @@ class KomorebiTray:
         """Function to stop Komorebi"""
         try:
             command = ["komorebic.exe", "stop", "--whkd"]
-            result = subprocess.run(command, check=True, capture_output=True, text=True)
+            result = subprocess.run(command, check=True, capture_output=True, text=True, creationflags=subprocess.CREATE_NO_WINDOW)
             self.is_running = False
             self.update_icon()
             print("Komorebi stopped successfully")
